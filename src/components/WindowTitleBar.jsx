@@ -1,5 +1,6 @@
 import React from "react";
 import Image from 'next/image';
+import MouseClick from "./soundComponent/MouseClick";
 
 export default function WindowTitleBar({icon, onClose, folderName}) {
   return (
@@ -15,12 +16,14 @@ export default function WindowTitleBar({icon, onClose, folderName}) {
         <div className="flex items-center justify-center bg-customGrey cardAndTableBorder box-shadow w-[25px] h-[25px] cursor-not-allowed">
           <Image src="/max.svg" alt='max-icon' width={10} height={11} />
         </div>
+        <MouseClick>
         <div
           onClick={onClose}
           className="flex items-center justify-center bg-customGrey cardAndTableBorder box-shadow w-[25px] h-[25px] cursor-pointer"
         >
           <Image src="/close-icon.png" alt="close-icon" width={10} height={11} />
         </div>
+        </MouseClick>
       </div>
     </div>
   );

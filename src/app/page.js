@@ -5,16 +5,23 @@ import BottomMenu from "@/components/BottomMenu";
 import BottomBar from "@/components/BottomBar";
 import HomeScreen from "@/components/HomeScreen";
 import Cv from "@/components/Cv";
-import Terminal from "@/components/Terminal";
+import AboutMe from "@/components/AboutMe";
+import Notification from "@/components/Notification";
+
 
 export default function Home() {
   const [menuIsVisible, setMenuIsVisible] = useState(false);
   const [cvVisible, setCvVisible] = useState(false);
   const [showPortfolio, setShowPortfolio] = useState(false);
-  const [terminalVisible, setTerminalVisible] =useState(false);
+  const [aboutMeVisible, setAboutMeVisible] = useState(false);
+  const [notificationVisible, setNotificationVisible] = useState(false);
 
-  function toggleTerminal(){
-    setTerminalVisible(!terminalVisible)
+  function toggleNotification(){
+    setNotificationVisible(!notificationVisible)
+  }
+
+  function toggleAboutMe(){
+    setAboutMeVisible(!aboutMeVisible)
   }
 
   function toggleCv(){
@@ -40,19 +47,22 @@ export default function Home() {
       <HomeScreen hideMenu={hideMenu} 
       openCv={toggleCv} 
       openPortfolio={togglePortfolio} 
-      showPortfolio={showPortfolio}
-      openTerminal={toggleTerminal}/>
+      showPortfolio={showPortfolio} 
+      openAboutMe={toggleAboutMe}
+      />
       {menuIsVisible && <BottomMenu 
       openCv={toggleCv}
       openPortfolio={togglePortfolio}
-      openTerminal={toggleTerminal}
+      openAboutMe={toggleAboutMe}
       />}
       <BottomBar 
       menuIsVisible={menuIsVisible}
       showMenu={showMenu}
+      onClose={toggleNotification}
       />
       {cvVisible ? <Cv onClose={toggleCv}/> : null}
-      {terminalVisible ? <Terminal onClose={toggleTerminal}/> : null}
+      {aboutMeVisible ? <AboutMe onClose={toggleAboutMe}/> : null}
+      {notificationVisible ? <Notification onClose={toggleNotification}/> : null}
       </main>
   );
 }

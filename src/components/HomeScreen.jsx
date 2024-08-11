@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Icon from "./Icon";
 import FolderWindow from "./FolderWindow";
 import Notepad from "./Notepad";
+import MouseClick from "./soundComponent/MouseClick";
 
-export default function HomeScreen({ hideMenu, openCv, openPortfolio, showPortfolio, openTerminal}) {
+export default function HomeScreen({ hideMenu, openCv, openPortfolio, showPortfolio, openAboutMe}) {
   const [activeElement, setActiveElement] = useState(null);
   const [showVdNotePad, setShowVdNotepad] = useState(false);
 
@@ -29,15 +30,21 @@ export default function HomeScreen({ hideMenu, openCv, openPortfolio, showPortfo
           openPortfolio();
         }}
       >
+        <MouseClick>
         <Icon
           image="/directory_closed-3.png"
           text="Portfolio"
           className="text-white"
           handleClick={openPortfolio}
         />
+        </MouseClick>
       </div>
-      <Icon image="/file_lines-0.png" text="CV" className="text-white" handleClick={openCv}/>
-      <Icon image="/user.png" text="About me" className="text-white" handleClick={openTerminal}/>
+      <MouseClick>
+      <Icon image="/file_lines-0.png" text="CV.txt" className="text-white" handleClick={openCv}/>
+      </MouseClick>
+      <MouseClick>
+      <Icon image="/user.png" text="About me" className="text-white" handleClick={openAboutMe}/>
+      </MouseClick>
       <Icon
         image="/envelope_closed.png"
         text="Contacts"
