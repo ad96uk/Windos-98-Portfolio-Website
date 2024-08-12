@@ -1,7 +1,8 @@
 import React from "react";
 import MouseClick from "./soundComponent/MouseClick";
 
-export default function BottomMenu({openCv, openPortfolio, openAboutMe}) {
+
+export default function BottomMenu({openCv, openPortfolio, openAboutMe, openNotification}) {
   return (
     <div className="flex flex-row bg-customGrey fixed bottom-[52px] left-[2px] h-[338px] w-[250px] cardAndTableBorder box-shadow">
       <div className="relative flex items-end justify-center w-10 bg-gradient-menu h-full text-lg whitespace-nowrap overflow-hidden">
@@ -26,9 +27,18 @@ export default function BottomMenu({openCv, openPortfolio, openAboutMe}) {
         className="flex flex-row gap-2 p-2 w-full items-center text-black hover:bg-customGrey25">
         <img src="/user.png" alt="About-me" />About me</button>
         </MouseClick>
-        <button className="flex flex-row gap-2 p-2 w-full items-center text-black hover:bg-customGrey25"><img src="/envelope_closed.png" alt="Contact" />Contacts</button>
-        <button className="flex flex-row gap-2 p-2 w-full items-center text-black hover:bg-customGrey25"><img src="/system.png" alt="SystemInfo" />About website</button>
-        <button className="flex flex-row gap-2 p-2 w-full items-center text-black hover:bg-customGrey25"><img src="/restart.png" alt="Portfolio" />Restart</button>
+        <button
+        onClick={openNotification}
+        className="flex flex-row gap-2 p-2 w-full items-center text-black hover:bg-customGrey25"><img src="/envelope_closed.png" alt="Contact" 
+        />Contacts</button>
+        <button 
+        onClick={openNotification}
+        className="flex flex-row gap-2 p-2 w-full items-center text-black hover:bg-customGrey25"><img src="/system.png" alt="SystemInfo" 
+        />About website</button>
+        <button
+        onClick={openNotification}
+        className="flex flex-row gap-2 p-2 w-full items-center text-black hover:bg-customGrey25"><img src="/restart.png" alt="Portfolio" 
+        />Restart</button>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import Draggable from "react-draggable";
 import Icon from "./Icon";
 import AddressBar from "./AddressBar";
 import WindowTitleBar from "./WindowTitleBar";
+import MouseClick from "./soundComponent/MouseClick";
 
 export default function FolderWindow({ onClose, openVdNotepad, onClick, style }) {
   const [isFolderOpen, setIsFolderOpen] = React.useState(false);
@@ -22,11 +23,14 @@ export default function FolderWindow({ onClose, openVdNotepad, onClick, style })
         <AddressBar route={isFolderOpen ? 'Portfolio\\vdphoto' : 'Portfolio'} />
         <div className='p-4'>
           {isFolderOpen ? (
-                <Icon text={'vdphoto.txt'} image='/note.png' className='text-black' handleClick={openVdNotepad} />
+                <MouseClick>
+                <Icon text={'vdphoto.txt'} image='/note.png' className='text-black' handleClick={openVdNotepad} /></MouseClick>
           ) : (
             <div className="flex flex-row gap-2">
-                <Icon text={'vd_photo'} image='/portfolio.png' className='text-black' handleClick={toggleFolder} />
-                <Icon text={'coming soon'} image='/help_sheet-0.png' className="text-black cursor-not-allowed-important"/> 
+                <MouseClick>
+                <Icon text={'vd_photo'} image='/portfolio.png' className='text-black' handleClick={toggleFolder} /></MouseClick>
+                <MouseClick>
+                <Icon text={'coming soon'} image='/help_sheet-0.png' className="text-black cursor-not-allowed-important"/> </MouseClick>
             </div>
           )}
         </div>

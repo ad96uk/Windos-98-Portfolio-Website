@@ -71,13 +71,14 @@ export default function AboutMe({onClose}){
               <Image src="/max.svg" alt="max-icon" width={10} height={11} />
             </div>
             <MouseClick>
-            <div className="flex items-center justify-center bg-customGrey cardAndTableBorder box-shadow w-[25px] h-[25px] cursor-pointer">
+            <div className="flex items-center justify-center bg-customGrey cardAndTableBorder box-shadow w-[25px] h-[25px] cursor-pointer"
+            onClick={onClose}
+            >
               <Image
                 src="/close-icon.png"
                 alt="close-icon"
                 width={10}
                 height={11}
-                onClick={onClose}
               />
             </div>
             </MouseClick>

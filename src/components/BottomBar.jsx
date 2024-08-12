@@ -3,11 +3,12 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import MouseClick from "./soundComponent/MouseClick";
-import WarningSound from "./soundComponent/WarningSound";
+import { useSound } from "./soundComponent/SoundProvider";
 
-export default function BottomMenu({ showMenu, onClose }) {
+export default function BottomMenu({ showMenu }) {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isClient, setIsClient] = useState(false);
+  const {isSoundOn, toggleSound} = useSound();
 
   useEffect(() => {
     setIsClient(true);
@@ -54,16 +55,14 @@ export default function BottomMenu({ showMenu, onClose }) {
       <div className="flex flex-row pr-4">
         <div className="bar-divider"></div>
         <div className="flex items-center gap-2 pl-4">
-          <WarningSound>
-            <button onClick={onClose}>
+            <button onClick={toggleSound}>
               <Image
-                src={"/speaker.png"}
+                src={isSoundOn ? "/speaker.png" : "/speaker_muted.png"}
                 width={25}
                 height={25}
                 alt="speaker"
               />
             </button>
-            </WarningSound>
           <p className="text-lg">{formatTime(currentTime)}</p>
         </div>
       </div>

@@ -3,7 +3,7 @@ import Draggable from "react-draggable";
 import Image from "next/image";
 import MouseClick from "./soundComponent/MouseClick";
 
-export default function Notification({onClose}) {
+export default function Notification({onClick}) {
   return (
     <Draggable bounds="parent">
       <div className="absolute notepad-window flex flex-col w-[375px] cardAndTableBorder box-shadow bg-customGrey p-1">
@@ -14,7 +14,7 @@ export default function Notification({onClose}) {
           <div className="flex flex-row items-center justify-center gap-1 pr-1">
           <MouseClick style={'bg-red-300'}>
             <div className="flex items-center justify-center bg-customGrey cardAndTableBorder box-shadow w-[25px] h-[25px] cursor-pointer"
-            onClick={onClose}
+            onClick={onClick}
             >
               <Image
                 src="/close-icon.png"
@@ -33,7 +33,7 @@ export default function Notification({onClose}) {
         <div className="flex flex-row justify-center pb-4 pt-2">
         <MouseClick>
         <button className="px-6 py-[2px] cardAndTableBorder box-shadow"
-        onClick={onClose}
+        onClick={onClick}
         >OK</button>
         </MouseClick>
         </div>
