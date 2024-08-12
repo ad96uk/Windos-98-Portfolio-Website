@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import MouseClick from "./soundComponent/MouseClick";
-import WarningSound from "./soundComponent/warningSound";
+import WarningSound from "./soundComponent/WarningSound";
 
 export default function BottomMenu({ showMenu, onClose }) {
   const [currentTime, setCurrentTime] = useState(new Date());
