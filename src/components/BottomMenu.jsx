@@ -9,19 +9,19 @@ export default function BottomMenu({openCv, openPortfolio, openAboutMe, openNoti
         <p className="text-white transform -rotate-90 absolute bottom-[125px] right-0 origin-bottom-right">Website menu</p>
       </div>
       <div className="flex flex-col justify-start items-start text-white gap-2 p-1 w-full">
-      <MouseClick>
+      <MouseClick className={'w-full'}>
         <button className="flex flex-row gap-2 p-2 w-full items-center text-black hover:bg-customGrey25" 
         onClick={openPortfolio}
         ><img src="/directory_closed-3.png" alt="Portfolio"
         />Portfolio</button>
         </MouseClick>
-        <MouseClick>
+        <MouseClick className={'w-full'}>
         <button className="flex flex-row gap-2 p-2 w-full items-center text-black hover:bg-customGrey25" 
         onClick={openCv}>
           <img src="/file_lines-0.png" alt="CV" 
         />CV</button>
         </MouseClick>
-        <MouseClick>
+        <MouseClick className={'w-full'}>
         <button
         onClick={openAboutMe}
         className="flex flex-row gap-2 p-2 w-full items-center text-black hover:bg-customGrey25">

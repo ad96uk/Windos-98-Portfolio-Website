@@ -12,7 +12,7 @@ export default function Notification({onClick}) {
             <p className="text-white">Alert!</p>
           </div>
           <div className="flex flex-row items-center justify-center gap-1 pr-1">
-          <MouseClick style={'bg-red-300'}>
+          <MouseClick>
             <div className="flex items-center justify-center bg-customGrey cardAndTableBorder box-shadow w-[25px] h-[25px] cursor-pointer"
             onClick={onClick}
             >

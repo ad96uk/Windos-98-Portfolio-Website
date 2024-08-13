@@ -5,7 +5,7 @@ import Image from "next/image";
 import MouseClick from "./soundComponent/MouseClick";
 import { useSound } from "./soundComponent/SoundProvider";
 
-export default function BottomMenu({ showMenu }) {
+export default function BottomMenu({ showMenu, startAnimation }) {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isClient, setIsClient] = useState(false);
   const {isSoundOn, toggleSound} = useSound();
@@ -33,12 +33,12 @@ export default function BottomMenu({ showMenu }) {
   }
 
   return (
-    <div className="flex flex-row h-[50px] bg-[#cfd0cf] cardAndTableBorder box-shadow py-1 px-1 gap-4 justify-between">
+    <div className={`${startAnimation ? 'fade-in-loading-icon-6' : ''} flex flex-row h-[50px] bg-[#cfd0cf] cardAndTableBorder box-shadow py-1 px-1 gap-4 justify-between`}>
       <div className="flex flex-row gap-[4px]">
-          <MouseClick>
+          <MouseClick className={'inline-flex'}>
           <button
             onClick={showMenu}
-            className="flex flex-row gap-2 items-center cardAndTableBorder btn-box-shadow py-4 px-6 cursor-pointer font-bold text-lg bg-[#cfd0cf] leading-3"
+            className='flex flex-row gap-2 items-center cardAndTableBorder btn-box-shadow py-4 px-6 cursor-pointer font-bold text-lg bg-[#cfd0cf] leading-3'
           >
             <Image
               src={"/windows-0.png"}
@@ -63,7 +63,9 @@ export default function BottomMenu({ showMenu }) {
                 alt="speaker"
               />
             </button>
-          <p className="text-lg">{formatTime(currentTime)}</p>
+          <p 
+          className='text-lg'
+          >{formatTime(currentTime)}</p>
         </div>
       </div>
     </div>

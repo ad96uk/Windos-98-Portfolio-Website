@@ -4,7 +4,7 @@ import FolderWindow from "./FolderWindow";
 import Notepad from "./Notepad";
 import MouseClick from "./soundComponent/MouseClick";
 
-export default function HomeScreen({ hideMenu, openCv, openPortfolio, showPortfolio, openAboutMe}) {
+export default function HomeScreen({ hideMenu, openCv, openPortfolio, showPortfolio, openAboutMe, startAnimation}) {
   const [activeElement, setActiveElement] = useState(null);
   const [showVdNotePad, setShowVdNotepad] = useState(false);
 
@@ -22,7 +22,7 @@ export default function HomeScreen({ hideMenu, openCv, openPortfolio, showPortfo
   return (
     <div
       onClick={hideMenu}
-      className="flex flex-col items-start p-3 gap-4 home-screen-height  bg-[#3a6ea5]"
+    className={`flex flex-col items-start p-3 gap-4 home-screen-height bg-[#3a6ea5]`}
     >
       <div
         onClick={(e) => {
@@ -34,21 +34,25 @@ export default function HomeScreen({ hideMenu, openCv, openPortfolio, showPortfo
         <Icon
           image="/directory_closed-3.png"
           text="Portfolio"
-          className="text-white"
+          className={startAnimation ? 'fade-in-loading-icon-2 text-white' : ''}
           handleClick={openPortfolio}
         />
         </MouseClick>
       </div>
       <MouseClick>
-      <Icon image="/file_lines-0.png" text="CV.txt" className="text-white" handleClick={openCv}/>
+      <Icon 
+      className={startAnimation ? 'fade-in-loading-icon-4 text-white' : ''}
+      image="/file_lines-0.png" text="CV.txt" handleClick={openCv}/>
       </MouseClick>
       <MouseClick>
-      <Icon image="/user.png" text="About me" className="text-white" handleClick={openAboutMe}/>
+      <Icon
+      className={startAnimation ? 'fade-in-loading-icon-2 text-white' : ''}
+      image="/user.png" text="About me" handleClick={openAboutMe}/>
       </MouseClick>
       <Icon
+        className={startAnimation ? 'fade-in-loading-icon-3 text-white' : ''}
         image="/envelope_closed.png"
         text="Contacts"
-        className="text-white"
       />
       {showPortfolio && (
         <FolderWindow onClose={openPortfolio} openVdNotepad={toggleVdNotepad} onClick={() => handleClick(1)}

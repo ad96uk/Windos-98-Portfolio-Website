@@ -20,7 +20,7 @@ export default function MouseClick({ children, onClick, className }) {
   };
 
   return (
-    <span className={`inline-flex p-0 m-0 ${className}`} onClick={handleClick}>
+    <span className={`${className}`} onClick={handleClick}>
       {children}
     </span>
   );

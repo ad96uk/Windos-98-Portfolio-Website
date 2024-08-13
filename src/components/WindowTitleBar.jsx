@@ -10,12 +10,17 @@ export default function WindowTitleBar({icon, onClose, folderName}) {
         <p className="text-white">{folderName}</p>
       </div>
       <div className="flex flex-row items-center justify-center gap-1 pr-1">
+      <MouseClick>
+
         <div className="flex items-end pb-1 justify-center bg-customGrey cardAndTableBorder box-shadow w-[25px] h-[25px] cursor-not-allowed">
           <Image src="/min.svg" alt='min-icon' width={10} height={10} />
         </div>
+        </MouseClick>
+        <MouseClick>
         <div className="flex items-center justify-center bg-customGrey cardAndTableBorder box-shadow w-[25px] h-[25px] cursor-not-allowed">
           <Image src="/max.svg" alt='max-icon' width={10} height={11} />
         </div>
+        </MouseClick>
         <MouseClick>
         <div
           onClick={onClose}
