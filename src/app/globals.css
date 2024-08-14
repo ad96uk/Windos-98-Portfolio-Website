@@ -25,11 +25,32 @@
   left: 25%;
 }
 
+.explorerMenuBorder {
+  border-top: 1.75px solid #dfe0e3;
+  border-left: 1.75px solid #dfe0e3;
+  border-right: 1.75px solid #c5c5c6;
+  border-bottom: 1.75px solid #c5c5c6;
+}
+
 .cardAndTableBorder {
   border-top: 1.75px solid #dfe0e3;
   border-left: 1.75px solid #dfe0e3;
   border-right: 1.75px solid #050608;
   border-bottom: 1.75px solid #050608;
+}
+
+.cardAndTableBorderHover:hover {
+  border-top: 1.75px solid #dfe0e3;
+  border-left: 1.75px solid #dfe0e3;
+  border-right: 1.75px solid #050608;
+  border-bottom: 1.75px solid #050608;
+}
+
+.cardAndTableBorderExplorerMenu{
+  border-top: 1.75px solid #dfe0e300;
+  border-left: 1.75px solid #dfe0e300;
+  border-right: 1.75px solid #dfe0e300;
+  border-bottom: 1.75px solid #dfe0e300;
 }
 
 .box-shadow {
@@ -43,6 +64,16 @@
 }
 
 .btn-box-shadow {
+  box-shadow: 
+  inset 0 1.75px 0 0 #fefefe, 
+  inset -1.75px 0 0 0 #888c8f, 
+  inset 0 -1.75px 0 0 #888c8f, 
+  inset 1.75px 0 0 0 #fefefe, 
+  0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+  0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-box-shadow-hover:hover {
   box-shadow: 
   inset 0 1.75px 0 0 #fefefe, 
   inset -1.75px 0 0 0 #888c8f, 
@@ -93,6 +124,7 @@
   padding-left: 30px;
   list-style-type: disc!important;
 }
+
 .text {
   color: #3f3;
   text-shadow: 0 0 5px rgba(51, 255, 51, 0.75);
@@ -134,7 +166,6 @@
   }
 }
 
-/* styles/global.css */
 .contact-form {
   max-width: 500px;
   margin: 0 auto;

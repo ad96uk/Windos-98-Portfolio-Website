@@ -1,7 +1,7 @@
 import React from "react";
 import Draggable from "react-draggable";
 import Image from "next/image";
-import MouseClick from "./soundComponent/MouseClick";
+import MouseClick from "./soundComponents/MouseClick";
 
 export default function Notification({onClick}) {
   return (

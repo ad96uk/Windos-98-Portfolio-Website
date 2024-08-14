@@ -1,6 +1,6 @@
 import React from "react";
 import Image from 'next/image';
-import MouseClick from "./soundComponent/MouseClick";
+import MouseClick from "./soundComponents/MouseClick";
 
 export default function WindowTitleBar({icon, onClose, folderName}) {
   return (
@@ -11,7 +11,6 @@ export default function WindowTitleBar({icon, onClose, folderName}) {
       </div>
       <div className="flex flex-row items-center justify-center gap-1 pr-1">
       <MouseClick>
-
         <div className="flex items-end pb-1 justify-center bg-customGrey cardAndTableBorder box-shadow w-[25px] h-[25px] cursor-not-allowed">
           <Image src="/min.svg" alt='min-icon' width={10} height={10} />
         </div>

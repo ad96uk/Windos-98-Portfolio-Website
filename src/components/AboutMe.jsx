@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Draggable from "react-draggable";
-import MouseClick from "./soundComponent/MouseClick";
+import MouseClick from "./soundComponents/MouseClick";
 
 const Tab = ({ label, isActive, onClick }) => {
   return (

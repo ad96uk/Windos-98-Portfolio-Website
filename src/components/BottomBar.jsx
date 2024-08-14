@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import MouseClick from "./soundComponent/MouseClick";
-import { useSound } from "./soundComponent/SoundProvider";
+import MouseClick from "./soundComponents/MouseClick";
+import { useSound } from "./soundComponents/SoundProvider";
+import BottomBarChild from "./bottomBarChild";
 
-export default function BottomMenu({ showMenu, startAnimation }) {
+export default function BottomMenu({ showMenu, startAnimation, cvVisible, showPortfolio, aboutMeVisible }) {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isClient, setIsClient] = useState(false);
   const {isSoundOn, toggleSound} = useSound();
@@ -33,7 +34,8 @@ export default function BottomMenu({ showMenu, startAnimation }) {
   }
 
   return (
-    <div className={`${startAnimation ? 'fade-in-loading-icon-6' : ''} flex flex-row h-[50px] bg-[#cfd0cf] cardAndTableBorder box-shadow py-1 px-1 gap-4 justify-between`}>
+    <div className={`${startAnimation ? 'fade-in-loading-icon-6' : ''} flex flex-row h-[50px] bg-[#cfd0cf] cardAndTableBorder box-shadow py-1 px-1 justify-between`}>
+      <div className="flex flex-row">
       <div className="flex flex-row gap-[4px]">
           <MouseClick className={'inline-flex'}>
           <button
@@ -51,7 +53,12 @@ export default function BottomMenu({ showMenu, startAnimation }) {
           </MouseClick>
         <div className="bar-divider"></div>
       </div>
-      <div></div>
+      <div className="flex flex-row justify-start items-center">
+        {cvVisible ? <BottomBarChild icon={"/notepad-1.png"} appName={"cv.txt"} /> : null}
+        {showPortfolio ? <BottomBarChild icon={"/directory_closed-3.png"} appName={"Portfolio"} /> : null}
+        {aboutMeVisible ? <BottomBarChild icon={"/user.png"} appName={"About me"} /> : null}
+      </div>
+      </div>
       <div className="flex flex-row pr-4">
         <div className="bar-divider"></div>
         <div className="flex items-center gap-2 pl-4">
