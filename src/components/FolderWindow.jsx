@@ -3,7 +3,8 @@ import Draggable from "react-draggable";
 import Icon from "./Icon";
 import AddressBar from "./AddressBar";
 import WindowTitleBar from "./WindowTitleBar";
-import MouseClick from "./soundComponent/MouseClick";
+import MouseClick from "./soundComponents/MouseClick";
+import ExplorerMenu from "./ExplorerMenu";
 
 export default function FolderWindow({ onClose, openVdNotepad, onClick, style }) {
   const [isFolderOpen, setIsFolderOpen] = React.useState(false);
@@ -20,6 +21,7 @@ export default function FolderWindow({ onClose, openVdNotepad, onClick, style })
         style={style}
       >
         <WindowTitleBar icon={'/portfolio.png'} folderName={'Portfolio'} onClose={onClose} />
+        <ExplorerMenu />
         <AddressBar route={isFolderOpen ? 'Portfolio\\vdphoto' : 'Portfolio'} />
         <div className='p-4'>
           {isFolderOpen ? (

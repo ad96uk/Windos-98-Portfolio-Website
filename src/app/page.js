@@ -7,7 +7,7 @@ import HomeScreen from '@/components/HomeScreen';
 import Cv from '@/components/Cv';
 import AboutMe from '@/components/AboutMe';
 import Notification from '@/components/Notification';
-import { SoundProvider } from '@/components/soundComponent/SoundProvider';
+import { SoundProvider } from '@/components/soundComponents/SoundProvider';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -75,7 +75,10 @@ export default function Home() {
               />
             )}
             <BottomBar 
+            cvVisible={cvVisible}
+            showPortfolio={showPortfolio}
             startAnimation={startAnimation}
+            aboutMeVisible={aboutMeVisible}
             menuIsVisible={menuIsVisible} showMenu={showMenu} />
             {cvVisible && <Cv onClose={toggleCv} />}
             {aboutMeVisible && <AboutMe onClose={toggleAboutMe} />}

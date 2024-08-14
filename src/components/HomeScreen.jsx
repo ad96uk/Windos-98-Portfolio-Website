@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Icon from "./Icon";
 import FolderWindow from "./FolderWindow";
 import Notepad from "./Notepad";
-import MouseClick from "./soundComponent/MouseClick";
+import MouseClick from "./soundComponents/MouseClick";
 
 export default function HomeScreen({ hideMenu, openCv, openPortfolio, showPortfolio, openAboutMe, startAnimation}) {
   const [activeElement, setActiveElement] = useState(null);

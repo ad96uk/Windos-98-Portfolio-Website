@@ -1,5 +1,5 @@
 import React from "react";
-import MouseClick from "./soundComponent/MouseClick";
+import MouseClick from "./soundComponents/MouseClick";
 
 
 export default function BottomMenu({openCv, openPortfolio, openAboutMe, openNotification}) {
