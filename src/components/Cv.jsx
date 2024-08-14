@@ -64,11 +64,9 @@ export default function Cv({ onClose }) {
             - - - - - -
           </span>
           <p className="text-slate-700">
-            <b className="text-black">Front-end:</b> HTML, CSS, TailwindCSS,
-            Bootstrap, JavaScript;
+            <b className="text-black">Front-end:</b> HTML, CSS, TailwindCSS, Bootstrap, JavaScript, React, Next.js, Gatsby;
             <br />
-            <b className="text-black">Back-end:</b> PHP, Wordpress Core,
-            WooCommerce, MySQL;
+            <b className="text-black">Back-end:</b> PHP, Wordpress Core, WooCommerce, MySQL;
             <br />
             <b className="text-black">Project management:</b> Git, Jira,
             ClickUp;
@@ -95,27 +93,17 @@ export default function Cv({ onClose }) {
           </h3>
           <p>(Wordpress/Frontend Developer)</p>
           <ul className="list-disc-important">
-            <li>
-              Contributed to the design and development of the frontend part of
-              a new company product aimed at optimizing navigation processes
-              within medical institutions, baked by the European Space Agency.
+            <li>Developed custom responsive themes from scratch for the company’s corporate websites, utilizing ACF, custom post types, and REST API.</li>
+            <li>Developed a cost-saving calculator and a CO2 emissions reduction calculator using JavaScript, MySQL, and WordPress hooks, leading to a 15% reduction in CO2 emissions for client companies.
             </li>
-            <li>
-              Migrated the company’s website from Wix to WordPress, developing
-              and scaling it in line with the company’s growth. Added
-              interactive JavaScript features to enhance user experience,
-              including a cost-saving calculator and a CO2 emissions savings
-              tool designed to optimize paper-based workflows. Enhanced database
-              security, implemented DDoS protection, and set up performance
-              monitoring systems. Configured GA for accurate traffic tracking,
-              including filters, goals, and custom events, and used GTM to track
-              key user interactions.
+            <li>Collaborated with a designer to implement new designs, cutting implementation time by 30% via a structured task management system in Jira and ensuring pixel-perfect Figma accuracy.
             </li>
-            <li>
-              Performed regular cross-platform testing to ensure seamless
-              functionality on both mobile and desktop devices.
+            <li>Participated in the large-scale frontend development of an indoor hospital navigation web portal using React, TailwindCSS, and DaisyUI, with Git used as the version control system.
             </li>
-            <li>Managed task scheduling and deadline estimation using Jira.</li>
+            <li>Conducted regular cross-platform testing using both manual methods and automated tests written in Python and Selenium, greatly reducing post-launch bug reports.
+            </li>
+            <li>Worked on optimizing the website for SEO and configured GA and GTM, improving conversion rates by 20% through accurate tracking and data-driven insights.
+            </li>
           </ul>
 
           <h3 className="mt-8">
@@ -135,24 +123,34 @@ export default function Cv({ onClose }) {
           <p className="leading-3">(Wordpress Developer)</p>
           <ul className="list-disc-important">
             <li>
-              Defined the target audience, analyzed business needs, and
-              formulated functional requirements for the online store. Developed
-              the site using WordPress with Elementor and WooCommerce, achieving
-              readiness for payment acceptance in just 3 weeks from initial
-              concept.
+              Developed custom responsive themes from scratch for the company’s
+              corporate websites, utilizing ACF, custom post types, and REST
+              API.
             </li>
             <li>
-              Integrated payment gateways and configured anti-fraud systems on
-              the website, ensuring uninterrupted and secure payment processing.
-              These measures significantly enhanced transaction protection
-              against fraud and guaranteed users a high level of trust in the
-              payment process.
+              Developed a cost-saving calculator and a CO2 emissions reduction
+              calculator using JavaScript, MySQL, and WordPress hooks, leading
+              to a 15% reduction in CO2 emissions for client companies.
             </li>
             <li>
-              Set up custom events for tracking in Google Analytics, closely
-              collaborated with the marketing department, conducted A/B testing,
-              and optimized the store, achieving a conversion rate of 4.5%,
-              which is 1.5% higher than the industry average.
+              Collaborated with a designer to implement new designs, cutting
+              implementation time by 30% via a structured task management system
+              in Jira and ensuring pixel-perfect Figma accuracy.
+            </li>
+            <li>
+              Participated in the large-scale frontend development of an indoor
+              hospital navigation web portal using React, TailwindCSS, and
+              DaisyUI, with Git used as the version control system.
+            </li>
+            <li>
+              Conducted regular cross-platform testing using both manual methods
+              and automated tests written in Python and Selenium, greatly
+              reducing post-launch bug reports.
+            </li>
+            <li>
+              Worked on optimizing the website for SEO and configured GA and
+              GTM, improving conversion rates by 20% through accurate tracking
+              and data-driven insights.
             </li>
           </ul>
 
