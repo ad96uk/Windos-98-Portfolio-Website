@@ -91,7 +91,7 @@ export default function Cv({ onClose }) {
             - - - - - -
           </span>
           <h3 className="pb-0 mb-0 leading-3">
-            <b>DRIVERNET, St. Helens 06/2022-05/2024</b>
+            <b>Pronetix, St. Helens 06/2022-05/2024</b>
           </h3>
           <p>(Wordpress/Frontend Developer)</p>
           <ul className="list-disc-important">

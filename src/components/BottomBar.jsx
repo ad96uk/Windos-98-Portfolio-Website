@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import MouseClick from "./soundComponents/MouseClick";
 import { useSound } from "./soundComponents/SoundProvider";
-import BottomBarChild from "./bottomBarChild";
+import BottomBarChild from "./BottomBarChild";
 
 export default function BottomMenu({ showMenu, startAnimation, cvVisible, showPortfolio, aboutMeVisible }) {
   const [currentTime, setCurrentTime] = useState(new Date());
