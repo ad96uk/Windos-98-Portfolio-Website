@@ -46,7 +46,7 @@ export default function Preloader() {
     setFadeInElements(elements);
 
     const firstElementDelay = 500;
-    const subsequentElementsDelay = 1000;
+    const subsequentElementsDelay = 700;
 
     elements.forEach((_, index) => {
       const delay = firstElementDelay + index * subsequentElementsDelay;

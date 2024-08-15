@@ -1,12 +1,43 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import WindowTitleBar from "./WindowTitleBar";
 import Draggable from "react-draggable";
 import ExplorerMenu from "./ExplorerMenu";
 
+
 export default function Cv({ onClose }) {
+const [apiData, setApiData] = useState(null);
+const api = process.env.NEXT_PUBLIC_API_URL;
+
+
+useEffect(() => {
+  fetch(api)
+    .then((response) => response.json())
+    .then((data) => {
+      setApiData(data.acf);
+    })
+    .catch((error) => {
+      console.log('Error fetching data:', error);
+    })
+}, [])
+
+const getParagraphs = (summary) => {
+  return summary
+    .split('\r\n')
+    .map(paragraph => paragraph.trim().replace('*', ''))
+    .filter(paragraph => paragraph.length > 0);
+};
+
+if (!apiData){
+  return <div className="cv-window"></div>
+}
+
+const paragraphs_1 = getParagraphs(apiData.work_section_1['summary-1']);
+const paragraphs_2 = getParagraphs(apiData.work_section_2['summary-2']);
+const paragraphs_3 = getParagraphs(apiData.work_section_3['summary-3']);
+
   return (
     <Draggable bounds="parent">
-      <div className="absolute notepad-window flex flex-col w-[850px] h-[620px] cardAndTableBorder box-shadow bg-customGrey p-1">
+      <div className="absolute cv-window flex flex-col w-[850px] h-[620px] cardAndTableBorder box-shadow bg-customGrey p-1">
         <WindowTitleBar
           icon={"/notepad-1.png"}
           folderName={"CV - Anton Dvaravenka"}
@@ -21,8 +52,8 @@ export default function Cv({ onClose }) {
             - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             - - - - - -
           </span>
-          <h1 className="text-3xl text-center">Anton Dvaravenka</h1>
-          <h2 className="text-xl text-center leading-3">Front-End Developer</h2>
+          <h1 className="text-3xl text-center">{apiData.name}</h1>
+          <h2 className="text-xl text-center leading-3">{apiData.role}</h2>
           <span className="text-xl">
             - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -57,7 +88,7 @@ export default function Cv({ onClose }) {
             - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             - - - - - -
           </span>
-          <h2 className="text-2xl text-center">SKILL</h2>
+          <h2 className="text-2xl text-center">SKILL'S</h2>
           <span className="text-xl">
             - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -89,69 +120,32 @@ export default function Cv({ onClose }) {
             - - - - - -
           </span>
           <h3 className="pb-0 mb-0 leading-3">
-            <b>Pronetix, St. Helens 06/2022-05/2024</b>
+            <b>{apiData.work_section_1['company-name-1']}</b>
           </h3>
-          <p>(Wordpress/Frontend Developer)</p>
+          <p>{apiData.work_section_1['job_title-1']}</p>
           <ul className="list-disc-important">
-            <li>Developed custom responsive themes from scratch for the company’s corporate websites, utilizing ACF, custom post types, and REST API.</li>
-            <li>Developed a cost-saving calculator and a CO2 emissions reduction calculator using JavaScript, MySQL, and WordPress hooks, leading to a 15% reduction in CO2 emissions for client companies.
-            </li>
-            <li>Collaborated with a designer to implement new designs, cutting implementation time by 30% via a structured task management system in Jira and ensuring pixel-perfect Figma accuracy.
-            </li>
-            <li>Participated in the large-scale frontend development of an indoor hospital navigation web portal using React, TailwindCSS, and DaisyUI, with Git used as the version control system.
-            </li>
-            <li>Conducted regular cross-platform testing using both manual methods and automated tests written in Python and Selenium, greatly reducing post-launch bug reports.
-            </li>
-            <li>Worked on optimizing the website for SEO and configured GA and GTM, improving conversion rates by 20% through accurate tracking and data-driven insights.
-            </li>
+            {paragraphs_1.map((paragraph, index) => (
+              <li key={index}>{paragraph}</li>
+            ))} 
+          </ul>
+          <h3 className="mt-8">
+            <b>{apiData.work_section_2['company-name-2']}</b>
+          </h3>
+          <p className="leading-3">{apiData.work_section_2['job_title-2']}</p>
+          <ul className="list-disc-important">
+          {paragraphs_2.map((paragraph, index) => (
+              <li key={index}>{paragraph}</li>
+            ))}
           </ul>
 
           <h3 className="mt-8">
-            <b>FREELANCE, International 02/2021 - 05/2022</b>
+            <b>{apiData.work_section_3['company-name-3']}</b>
           </h3>
-          <p className="leading-3">(Wordpress Developer)</p>
+          <p className="leading-3">{apiData.work_section_3['job_title-3']}</p>
           <ul className="list-disc-important">
-            <li>
-              Developing websites for small and medium-sized businesses was my
-              primary focus during my freelance work.
-            </li>
-          </ul>
-
-          <h3 className="mt-8">
-            <b>DELO RUK, MINSK 01/2018-12/2020</b>
-          </h3>
-          <p className="leading-3">(Wordpress Developer)</p>
-          <ul className="list-disc-important">
-            <li>
-              Developed custom responsive themes from scratch for the company’s
-              corporate websites, utilizing ACF, custom post types, and REST
-              API.
-            </li>
-            <li>
-              Developed a cost-saving calculator and a CO2 emissions reduction
-              calculator using JavaScript, MySQL, and WordPress hooks, leading
-              to a 15% reduction in CO2 emissions for client companies.
-            </li>
-            <li>
-              Collaborated with a designer to implement new designs, cutting
-              implementation time by 30% via a structured task management system
-              in Jira and ensuring pixel-perfect Figma accuracy.
-            </li>
-            <li>
-              Participated in the large-scale frontend development of an indoor
-              hospital navigation web portal using React, TailwindCSS, and
-              DaisyUI, with Git used as the version control system.
-            </li>
-            <li>
-              Conducted regular cross-platform testing using both manual methods
-              and automated tests written in Python and Selenium, greatly
-              reducing post-launch bug reports.
-            </li>
-            <li>
-              Worked on optimizing the website for SEO and configured GA and
-              GTM, improving conversion rates by 20% through accurate tracking
-              and data-driven insights.
-            </li>
+          {paragraphs_3.map((paragraph, index) => (
+              <li key={index}>{paragraph}</li>
+            ))}
           </ul>
 
           <h2 className="mt-8">

@@ -1,9 +1,11 @@
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import Head from 'next/head'; // Импортируем компонент Head
 
 const jetBrains = JetBrains_Mono({ 
   weight: ['400', '700'],
-  subsets: ["latin"] })
+  subsets: ["latin"] 
+});
 
 export const metadata = {
   title: "Anton D - Front end Developer",
@@ -13,7 +15,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="w-fulls h-full font-pixel bg-customBlue">{children}</body>
+      <Head>
+        <link rel="icon" href="/favicon.ico" /> {/* Добавляем фавикон */}
+        <meta name="description" content={metadata.description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{metadata.title}</title>
+      </Head>
+      <body className="w-full h-full font-pixel bg-customBlue">
+        {children}
+      </body>
     </html>
   );
 }

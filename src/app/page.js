@@ -6,6 +6,7 @@ import BottomBar from '@/components/BottomBar';
 import HomeScreen from '@/components/HomeScreen';
 import Cv from '@/components/Cv';
 import AboutMe from '@/components/AboutMe';
+import AboutSystem from '@/components/AboutSystem';
 import Notification from '@/components/Notification';
 import { SoundProvider } from '@/components/soundComponents/SoundProvider';
 
@@ -17,6 +18,11 @@ export default function Home() {
   const [showPortfolio, setShowPortfolio] = useState(false);
   const [aboutMeVisible, setAboutMeVisible] = useState(false);
   const [notificationVisible, setNotificationVisible] = useState(false);
+  const [aboutSystem, setAboutSystem] = useState(false);
+
+  function toggleAboutSystem(){
+    setAboutSystem(!aboutSystem)
+  }
 
   function toggleNotification() {
     setNotificationVisible(!notificationVisible);
@@ -72,6 +78,7 @@ export default function Home() {
                 openPortfolio={togglePortfolio}
                 openAboutMe={toggleAboutMe}
                 openNotification={toggleNotification}
+                openAboutSystem={toggleAboutSystem}
               />
             )}
             <BottomBar 
@@ -82,6 +89,7 @@ export default function Home() {
             menuIsVisible={menuIsVisible} showMenu={showMenu} />
             {cvVisible && <Cv onClose={toggleCv} />}
             {aboutMeVisible && <AboutMe onClose={toggleAboutMe} />}
+            {aboutSystem && <AboutSystem onClick={toggleAboutSystem} />}
             {notificationVisible && (
               <Notification onClick={toggleNotification} />
             )}

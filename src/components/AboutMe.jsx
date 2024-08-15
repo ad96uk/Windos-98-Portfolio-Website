@@ -6,8 +6,8 @@ import MouseClick from "./soundComponents/MouseClick";
 
 const Tab = ({ label, isActive, onClick }) => {
   return (
-    <MouseClick>
-    <button onClick={onClick} className={`py-1 px-3 tabs-styling tabs-shadow bg-customGrey ${isActive ? "z-[2]" : null }`}>
+    <MouseClick className={isActive ? 'z-[2]' : null}>
+    <button onClick={onClick} className={`py-1 px-3 tabs-styling tabs-shadow bg-customGrey`}>
       {label}
     </button>
     </MouseClick>
