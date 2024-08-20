@@ -6,7 +6,13 @@ import WindowTitleBar from "./WindowTitleBar";
 import MouseClick from "./soundComponents/MouseClick";
 import ExplorerMenu from "./ExplorerMenu";
 
-export default function FolderWindow({ onClose, openVdNotepad, onClick, style }) {
+export default function FolderWindow({
+  onClose,
+  openVdNotepad,
+  openDatacraft,
+  onClick,
+  style,
+}) {
   const [isFolderOpen, setIsFolderOpen] = React.useState(false);
 
   function toggleFolder() {
@@ -20,21 +26,37 @@ export default function FolderWindow({ onClose, openVdNotepad, onClick, style })
         onClick={onClick}
         style={style}
       >
-        <WindowTitleBar icon={'/portfolio.png'} folderName={'Portfolio'} onClose={onClose} />
+        <WindowTitleBar
+          icon={"/portfolio.png"}
+          folderName={"Portfolio"}
+          onClose={onClose}
+        />
         <ExplorerMenu />
-        <AddressBar route={isFolderOpen ? 'Portfolio\\vdphoto' : 'Portfolio'} />
-        <div className='p-4'>
-          {isFolderOpen ? (
-                <MouseClick>
-                <Icon text={'vdphoto.txt'} image='/note.png' className='text-black' handleClick={openVdNotepad} /></MouseClick>
-          ) : (
-            <div className="flex flex-row gap-2">
-                <MouseClick>
-                <Icon text={'vd_photo'} image='/portfolio.png' className='text-black' handleClick={toggleFolder} /></MouseClick>
-                <MouseClick>
-                <Icon text={'coming soon'} image='/help_sheet-0.png' className="text-black cursor-not-allowed-important"/> </MouseClick>
-            </div>
-          )}
+        <AddressBar route={"Portfolio"} />
+        <div className="p-4 flex flex-row gap-5">
+          <MouseClick>
+            <Icon
+              text={"vd_photo.txt"}
+              image="/note.png"
+              className="text-black"
+              handleClick={openVdNotepad}
+            />
+          </MouseClick>
+          <MouseClick>
+            <Icon
+              text={"datacraft.txt"}
+              image="/note.png"
+              className="text-black"
+              handleClick={openDatacraft}
+            />
+          </MouseClick>
+          <MouseClick>
+            <Icon
+              text={"coming soon"}
+              image="/help_sheet-0.png"
+              className="text-black cursor-not-allowed-important"
+            />{" "}
+          </MouseClick>
         </div>
       </div>
     </Draggable>

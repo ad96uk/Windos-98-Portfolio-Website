@@ -9,12 +9,14 @@ import AboutMe from '@/components/AboutMe';
 import AboutSystem from '@/components/AboutSystem';
 import Notification from '@/components/Notification';
 import { SoundProvider } from '@/components/soundComponents/SoundProvider';
+import DatacraftTxt from '@/components/DatacraftTxt';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [startAnimation, setStartAnimation] = useState(false);
   const [menuIsVisible, setMenuIsVisible] = useState(false);
   const [cvVisible, setCvVisible] = useState(false);
+  const [datacraftVisible, setDatacraftVisible] = useState(false)
   const [showPortfolio, setShowPortfolio] = useState(false);
   const [aboutMeVisible, setAboutMeVisible] = useState(false);
   const [notificationVisible, setNotificationVisible] = useState(false);
@@ -34,6 +36,9 @@ export default function Home() {
 
   function toggleCv() {
     setCvVisible(!cvVisible);
+  }
+  function toggleDatacraft() {
+    setDatacraftVisible(!datacraftVisible);
   }
 
   function togglePortfolio() {
@@ -66,6 +71,7 @@ export default function Home() {
             <HomeScreen
               hideMenu={hideMenu}
               openCv={toggleCv}
+              openDatacraft={toggleDatacraft}
               openPortfolio={togglePortfolio}
               showPortfolio={showPortfolio}
               openAboutMe={toggleAboutMe}
@@ -88,6 +94,7 @@ export default function Home() {
             aboutMeVisible={aboutMeVisible}
             menuIsVisible={menuIsVisible} showMenu={showMenu} />
             {cvVisible && <Cv onClose={toggleCv} />}
+            {datacraftVisible && <DatacraftTxt onClose={toggleDatacraft} />}
             {aboutMeVisible && <AboutMe onClose={toggleAboutMe} />}
             {aboutSystem && <AboutSystem onClick={toggleAboutSystem} />}
             {notificationVisible && (
